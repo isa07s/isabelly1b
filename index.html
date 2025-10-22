@@ -1,30 +1,179 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head> 
-    <meta charset="UTF-8">
-    <little>Video</little>
-    <link rel="stylesheet" href="styles.css">
+<head>
+  <meta charset="UTF-8" />
+  <title>ROBERTO-TELEFLIX</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body><header>
-<h1>ROBERTO-TELEFLIX</h1>
-</header>
-<nav>
-<ul>
-<li><a href="https://youtu.be/iSBw4Zq16hY?si=pn7aNV9pVGzXekpUtarget="_blank">Pica Pau em Portugues</a></li>
-<li><a href="https://youtu.be/sqLy-cUessE?si=isvDn1_vnX1ja-UE" target="_blank">Moranguinho uma aventura em Tutti Frutti</a></li>
-<li><a href="https://youtu.be/YbnQDmf54Lk?si=vi0ieaRIC0dtAKZp" target="_blank">Barbie as Aventuras em camping</a></li>
-<li><a href="https://youtu.be/EDSUwv2Fiws?si=A1Cf7EdQNw4RSXob" target="_blank">Caillou em Português | Caillou e o Bolo de Mirtilo</a></li>
-<li><a href="https://youtu.be/ol6P7rldiWY?si=ejZg5S7y-QHlavtI" target="_blank">Chiquititas | Capítulo 167</a></li>
-</ul>
-</nav>
-    <div class="video-box">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/KNJPalON82e" framboerder="0" allowfullscreen></iframe>
-        <div class="info">
-            <h3>Titulo</h3>
-            <p>Descriçao breve do video.</p>
-        </div>
+<body>
+  <header>
+      <!-- Botão Sobre -->
+    <div class="sobre">
+     <a href="/sobre.html" class="btn-sobre">Sobre</a>
     </div>
+    <h1>ROBERTO-TELEFLIX</h1>
+    </header>
+
+  <!-- LAYOUT: MENU LATERAL (ESQ) + VÍDEO (DIR) -->
+  <div class="layout">
+    <!-- LATERAL ESQUERDA --> 
+      <aside class="sidebar compacto">
+      <!-- Seletor de tema -->
+      <section style="padding:12px 0;">
+        <label for="tema" style="color:#BDC3C7; margin-right:8px;">ESCOLHA O TEMA:</label>
+        <select id="tema">
+          <option value="LOUVOR">LOUVOR</option>
+          <option value="MENSAGENS">MENSAGENS</option>
+          <option value="INFANTIL">INFANTIL</option>
+          <option value="AULAS">AULAS</option>
+        </select>
+      </section>
+
+      <!-- Menu dinâmico gerado via JS -->
+      <nav class="nav-vertical" aria-label="Lista de vídeos do tema">
+        <ul id="menu-temas"><!-- Itens gerados via JS --></ul>
+      </nav>
+
+      <!-- Menu fixo adicional -->
+      <br>
+      <h1 style="font-size:15px; color:#f0f0f0; margin:16px 0; text-align:left;">
+  VÍDEOS EXTERNOS DO YOUTUBE👇
+</h1>
+      <nav class="nav-vertical" aria-label="Vídeos fixos">
+        <ul>
+          <li><a href="https://youtu.be/PBCsu_ylh8c?si=nlZ3hswpBYAY2GPN" target="_blank"> Pica Pau </a></li>
+          <li><a href="https://youtu.be/hvgJI48-lSo?si=wwXUZtUPhSyXWfh2" target="_blank">Ursinho pooh </a></li>
+          <li><a href="https://youtu.be/3ohZ3E5fiII?si=vE_zXxh7DssMXIcR" target="_blank">Moranguinho </a></li>
+          <li><a href="https://youtu.be/RTzMbUycZT0?si=O3445ssr-57BYic0" target="_blank">Barbie dream house </a></li>
+          <li><a href="https://youtu.be/WpOkQ7ayUxQ?si=WXGQF266ds5PwNjc" target="_blank">Show da luna - Como a água vira chuva</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- PLAYER À DIREITA -->
+    <main class="player">
+      <div class="video-box">
+        <iframe
+          class="video-frame"
+          width="540"
+          height="310"
+          src="https://www.youtube.com/embed/kNJPalON82E"
+          title="Player de vídeo"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+
+        <div class="info">
+          <h3>Eu Sou Teu Pai</h3>
+          <p>Valesca Mayssa.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Mapa de temas → lista de vídeos
+    const TEMAS = {
+      LOUVOR: [
+        { titulo: "EU SOU TEU PAI", 
+         autor: "VALESCA MAYSSA", 
+         url: "https://www.youtube.com/watch?v=kNJPalON82E" 
+        },
+        { titulo: "DEUS DE PROMESSAS", 
+         autor: "MINISTÉRIO APASCENTAR", 
+         url: "https://youtu.be/93XkdakMp00?si=-S0mta76Kc_GxWhd" 
+        },
+        { titulo: "NINGUÉM EXPLICA DEUS", 
+         autor: "PRETO NO BRANCO", 
+         url: "https://youtu.be/LYsaKn8FRhc?si=R7yN3htfuafehfSw" 
+        },
+      ],
+      MENSAGENS: [
+        { titulo: "O TEMPO É CURTO; FAÇA O MELHOR USO DO SEU TEMPO", 
+         autor: "BILLY GRAHAM EM PORTUGUÊS", 
+         url: "https://youtu.be/fmsAqGy2pCM?si=u8aCy5Lwjoj80xAB" 
+        },
+        { titulo: "QUEM É JESUS CRISTO?", 
+         autor: "BILLY GRAHAM EM PORTUGUÊS", 
+         url: "https://youtu.be/6ATJ6avomUg?si=4_qlxZGejDlxVyz5" 
+        },
+      ],
+      INFANTIL: [
+        { titulo: "SOY UNA TAZA", 
+         autor: "CANTA JUEGO", 
+         url: "https://youtu.be/cgEnBkmcpuQ?si=paA3pkAIp3lgAmjQ" 
+        },
+        { titulo: "PEDRO, THIAGO, JOÃO NO BARQUINHO", 
+         autor: "3 PALAVRINHAS", 
+         url: "https://youtu.be/Tdwy3BZe61s?si=As38T49IC695wKE0" 
+        },
+      ],
+      AULAS: [
+        { titulo: "INTRODUÇÃO A JAVASCRIPT", 
+         autor: "TIGER CODES", 
+         url: "https://youtu.be/WRlfwBof66s?si=0o80ULtCNqjj-lU2" 
+        },
+        { titulo: "HTML E CSS BÁSICO EM 5 MINUTOS", 
+         autor: "TIGER CODES", 
+         url: "https://www.youtube.com/watch?v=5Hn58p-hYC0" 
+        },
+      ],
+    };
+
+    // Seletores
+    const selectTema = document.getElementById("tema");
+    const menuUl     = document.getElementById("menu-temas");
+    const iframeEl   = document.querySelector(".video-box iframe");
+    const infoTitulo = document.querySelector(".info h3");
+    const infoAutor  = document.querySelector(".info p");
+
+    // Converte URL normal do YouTube para /embed
+    function toEmbed(url) {
+      try {
+        const u = new URL(url);
+        const id = u.searchParams.get("v");
+        if (id) return `https://www.youtube.com/embed/${id}`;
+        if (u.hostname.includes("youtu.be")) return `https://www.youtube.com/embed/${u.pathname.slice(1)}`;
+        return url;
+      } catch {
+        return url;
+      }
+    }
+
+    // Renderiza o menu com base no tema
+    function renderMenu(tema) {
+      const lista = TEMAS[tema] || [];
+      menuUl.innerHTML = "";
+
+      lista.forEach((video) => {
+        const li = document.createElement("li");
+        const a  = document.createElement("a");
+        a.href = "#";
+        a.textContent = video.titulo.toUpperCase();
+        a.setAttribute("role", "button");
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          trocarVideo(video);
+        });
+        li.appendChild(a);
+        menuUl.appendChild(li);
+      });
+
+      if (lista.length) trocarVideo(lista[0]);
+    }
+
+    // Troca o vídeo e informações
+    function trocarVideo(video) {
+      iframeEl.src = toEmbed(video.url);
+      infoTitulo.textContent = video.titulo.toUpperCase();
+      infoAutor.textContent  = `${video.autor.toUpperCase()}.`;
+    }
+
+    // Inicialização
+    renderMenu(selectTema.value);
+    selectTema.addEventListener("change", () => renderMenu(selectTema.value));
+  </script>
 </body>
 </html>
-
-
+      
